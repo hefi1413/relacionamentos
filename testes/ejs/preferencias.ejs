@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+
+        <link rel='stylesheet' href='/css/all.min.css'>
+        <link rel='stylesheet' href='/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cinzel&family=Lato'>
+        <link rel='stylesheet' href='/css/script.css'>
+    </head>
+    
+    <body>
+        <!-- CENTER IMAGE -->
+        <div class='container-fluid image-top'></div>
+
+        <!-- ALERTS -->
+        <div class='container-fluid alert alert-danger alert-dismissible' style="display: none;" id='html-alerts'>
+        </div> 
+
+        <!-- ALINHAMENTO DO CONTAINER -->
+        
+        <!-- LINHA -->
+        <div class="row h-100" >    
+            
+            <!-- COLUNA 1 -->
+            <div class="col" style="border:1px solid red;">  
+
+                <!--DIV CONTENT-->
+                <div class="container" style="border:1px solid blue;">
+                    <h1 class="text-center">Preferências</h1>
+                    <br>
+                    
+                    <!-- LINHA -->
+                    <div class='row' style='height: 80px; background-color:#e6e6e6; '>
+                        <div class='col my-auto' >
+                            <span>Nesta página você poderá informar suas preferências e dados pessoais.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- LINHA -->
+                    <div class="row h-100">
+                        <div class="col mx-auto" style="border:0px solid blue;">
+                            <form method="POST" action="home/minhaconta/prefer/salvar">
+                                <br>
+                                <div class="form-group">
+                                    <label for="nome" class="text-left">Nome </label>
+                                    <input class="form-control form-control-lg" type="text" name="fields" id="nome" aria-describedby="nomeHelp" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="text-left">Email </label>
+                                    <input class="form-control form-control-lg" type="email" name="fields" id="email" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha" class="text-left">Senha </label>
+                                    <input class="form-control form-control-lg" type="password" name="fields" id="senha" aria-describedby="senhaHelp" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Confirmar" class="text-left">Confirmar </label>
+                                    <input class="form-control form-control-lg" type="password" name="fields" id="confirmar" aria-describedby="senhaHelp" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="estados">Estados</label>
+                                    <select class="form-control" id="estados">
+                                        //
+                                        // ESTADOS SELECT
+                                        //
+                                        <% ufs.forEach( uf => { %>
+                                        <option value=<%= uf.id %>> <%= uf.desc %> </option>
+                                        <%  }); %>
+                                    </select>
+                                 </div>
+
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <select id="cidade" class="form-control">
+                                        <option selected>Rio De Janeiro</option>
+                                    </select>
+                                </div>
+                                
+                                <label class="form-check-label" for="genero" class="text-left">Você é :</label>
+                                <div class="form-group" id="genero">
+                                    <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genero0" value="0">
+                                            <label class="form-check-label">Homem</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genero1" value="1">
+                                            <label class="form-check-label">Mulher</label>
+                                        </div>
+                                    </div>                        
+                                </div>
+                                
+                                <fieldset>
+                                    <legend class="form-label" for="transt" >Quais transtornos você tem vivenciado de forma +intensa :</legend>
+                                    <div class="form-group" id="disturbios">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="0" value="0">
+                                            <label class="form-check-label">Depressão</label>
+                                        </div>    
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="1" value="1">
+                                            <label class="form-check-label">Ansiedade</label>
+                                        </div>    
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="2" value="2">
+                                            <label class="form-check-label">Transt. Afetivo Bipolar</label>
+                                        </div>    
+                                    </div>    
+                                </fieldset>
+
+                                <label class="form-check-label" for="ecivil" class="text-left">Estado Civil :</label>
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="" id="civil0" value="0">
+                                            <label class="form-check-label">Solteiro</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="" id="civil1" value="1">
+                                            <label class="form-check-label">Casado</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="" id="civil2" value="2">
+                                            <label class="form-check-label">Viúvo</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="" id="civil3" value="3">
+                                            <label class="form-check-label">Separado(a)</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="" id="civil4" value="4">
+                                            <label class="form-check-label">Divorciado(a)</label>
+                                        </div>
+                                    </div>                        
+                                </div> 
+                                
+                                <br>
+                                
+                                <hr>
+
+                                <div class='form-group text-right'>
+                                    <button class='btn btn-success btn-lg w-25' type='submit' value='salvar'>Salvar </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- LISTA VIDEOS [youtube] RELACIONADOS PERFIL -->
+                    
+                    <br>
+                    <br>
+                    
+                    <!-- 
+                    <h2> Vídeos - Saúde Mental </h2>
+
+                    <div class="row">
+                        <div class="col" style="">
+                            <div class="card">
+                              <iframe src="https://www.youtube.com/embed/pWahNIMRxR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <div class="card-body">
+                                <p class="card-text">Este vídeo é relacionado a transtonro bipolar. Voce pode assisti-lo canal do youtube. </p>
+                                <a href="#" class="btn btn-primary">Assistir</a>
+                              </div>
+                            </div>                
+                        </div>
+                        <div class="col" style="">
+                            <div class="card">
+                              <iframe src="https://www.youtube.com/embed/pWahNIMRxR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <div class="card-body">
+                                <p class="card-text">Este vídeo é relacionado a depressão. Voce pode assisti-lo canal do youtube. </p>
+                                <a href="#" class="btn btn-primary">Assistir</a>
+                              </div>
+                            </div>                
+                        </div>
+                        <div class="col" style="">
+                            <div class="card">
+                              <iframe src="https://www.youtube.com/embed/pWahNIMRxR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              <div class="card-body">
+                                <p class="card-text">Este vídeo é relacionado a ansiedade. Voce pode assisti-lo canal do youtube. </p>
+                                <a href="#" class="btn btn-primary">Assistir</a>
+                              </div>
+                            </div>                
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>        
+        </div>
+        
+        <!-- PREFEERNCIAS -->
+        <script src="/js/prefer.js"></script>
+        <script src="/js/utils.js"></script>
+        
+    </body>
+</html>
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Bootstrap Forms</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <label for = "name">Best IDE (You can select more than one)</label>
+      <div>
+         <label class = "checkbox-inline">
+            <input type = "checkbox" id = "inlineCheckbox1" value = "option1"> NetBeans IDE
+         </label>
+         <label class = "checkbox-inline">
+            <input type = "checkbox" id = "inlineCheckbox2" value = "option2"> Eclipse IDE
+         </label>
+      </div>
+   </body>
+</html>
+
+-->
+
+<!--
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+@media only screen and (min-width: 768px) {
+  iframe{
+    height: 13em;
+  }
+  .card{
+    width: 50%;
+  }
+}
+-->
+
+<!-- --------
+    FORM MAIS COMPLETO 
+
+
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+
+-->

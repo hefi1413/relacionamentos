@@ -1,0 +1,57 @@
+
+//
+//  EXIBIÇÃO DE ALERTAS DO APP
+//
+// DANGER =0
+// INFO =1
+// SUCCESS =2
+
+
+const HTML_ALERTS ='html-alerts';
+
+class AlertsHtml {
+
+    constructor( doc ) {
+        this.alerts =doc.querySelector(HTML_ALERTS);
+        if(!this.alerts) {  //  
+            return new Error('div "alerts" não localizada !');
+        }
+    }
+    
+    messageDanger(intro, msg ) {
+        // danger message
+        
+        let html ='';
+        html = `<div class='alert alert-danger container-fluid'>`;
+        html +=`<strong>${intro}</strong>`;
+        html +=` ${msg}`;
+        //
+        this.alerts.innerHTML =html;
+    }
+    messageInfo(intro, msg ) {
+        // info message
+        
+        let html ='';
+        html = `<div class='alert alert-danger container-fluid'>`;
+        html +=`<strong>${intro}</strong>`;
+        html +=` ${msg}`;
+        //
+        this.alerts.innerHTML =html;
+    }
+    messageSuccess(intro, msg ) {
+        // success message
+        
+        let html ='';
+        html = `<div class='alert alert-danger container-fluid'>`;
+        html +=`<strong>${intro}</strong>`;
+        html +=` ${msg}`;
+        //
+        this.alerts.innerHTML =html;
+    }
+    
+    hide() {
+        this.alerts.style.display ='none';
+        this.alerts.innerHTML = '';
+    }
+    
+}

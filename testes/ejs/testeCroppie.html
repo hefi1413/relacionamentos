@@ -1,0 +1,90 @@
+<!doctype HTML>
+<html>
+    <head>
+        <!-- BOOTSTRAP -->
+        <link rel='stylesheet' href='/css/bootstrap.min.css'>
+        
+        <!-- CROPPIE -->
+        <link rel="stylesheet" href="/css/croppie.css" />
+        <script src="/js/croppie.js"></script>
+        
+        <style>
+            .frame {
+                width:390px;
+                height:478px;
+                border: 3px solid black;
+            }
+            .frame_result {
+                width:360px;
+                height:448px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    
+    <body>
+
+        <div class="container text-center">
+            
+            <h1> Teste Croppie Plugin </h1>
+            
+        </div>
+        
+        <br>
+        
+        <div class="container">
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <div id="demo" class="frame"></div>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <form method="post" action="/imagens/foto/upload" enctype="multipart/form-data">
+                        <label for="myfile">Upload foto:</label>
+                        <!-- <input type="file" id="input-file" name="input-file" onchange="this.form.submit()"> -->
+                        <input type="file" id="input-file" name="input-file">
+                    </form>
+                    
+                    <br>
+                    
+                    <button id="btnRemover">Remover</button>
+                    
+                    <br>
+                    
+                    <button id="btnCrop"> Resultado </button>
+                    
+                    <br>
+                    
+                    <span id="mensagem" style="color: red"></span>
+                    
+                    <a id='link'></a>
+                    
+                </div>
+                
+                <div class="col-2">
+                </div>
+                
+                <div class="col-3">
+                    <!-- <div id="result" class="frame_result"></div> -->
+                    <img id="result" class="frame_result">
+                </div>
+            </div>
+        </div>
+        
+        <!-- JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- BOOTSTRAP -->
+        <script src="/js/bootstrap.min.js"></script>
+
+        <script src="/js/utils.js"></script>
+        <script src="/js/testeCroppie.js"></script>
+        
+    </body>
+
+</html>

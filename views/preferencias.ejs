@@ -1,0 +1,421 @@
+
+<%
+    //CARREGA VARIÁVEIS DO FORM
+        
+    let _nome ='';
+    let _email ='';
+    let _senha ='';
+    //
+    let selecionada =0;
+    let foto1 =photo.foto1;
+    let foto2 =photo.foto2;
+    let foto3 =photo.foto3;
+    let foto4 =photo.foto4;
+
+    let _sexo =1;
+    let _estado_civil =0;
+    let _idade =19;
+    let _iduf =0;
+    let _idcidade =0;
+    let _disturbios =[];
+    let _desenvolvimento =[];
+    let _forma_contato =0;
+    let _contato_end ='';
+    let _historico ='';
+
+    // check if user is logged in 
+    if (user) {
+        selecionada =photo.selecionada;
+
+        _nome =user.nome;
+        
+        console.log('nome:', _nome) ;
+        
+        _email =user.email;
+        _senha =user.senha;
+        _sexo =user.sexo;
+        _estado_civil =user.estado_civil;
+        _idade =user.idade;
+        _iduf =user.iduf;
+        _idcidade =user.idcidade;
+        _disturbios =user.disturbios.split(",");                // transforma o campo em array string
+        _desenvolvimento =user.desenvolvimento.split(",");      // transforma o campo em array string
+        _forma_contato =user.forma_contato;
+        _contato_end ='';
+        _historico =user.historico;
+    }
+
+    function getDist( id ) {
+        return _disturbios.find( function(dist) { return dist == id } );
+    }
+
+    function getDesenv( id ) {
+        return _desenvolvimento.find( function(des) { return des == id } );
+    }
+%>
+        
+<!-- CENTER IMAGE -->
+<div class="container-fluid image-top"></div>
+
+<!-- ALERTS -->
+<div class="container-fluid alerts" id="html-alerts"></div> 
+
+<!-- ALINHAMENTO DO CONTAINER -->
+<!-- LINHA 1 -->
+<div class="row" style="height:1600px;border: 0px solid red;" >
+
+    <!-- COLUNA 1 -->
+    <div class="col-1" style="border:0px solid red;"> </div>
+    
+    <!-- &nbsp -->
+    
+    <!-- COLUNA 2 - PEFER's column  -->
+    <div class="col-8" style="border:0px solid red;">
+
+        <!-- DATA CONTAINER -->
+        <div class="container">
+            <form id="frmpref">
+                <!-- row 1 -->
+                <div class="row" style="border: 0px solid green;">
+                    
+                    <!--  col 1   //col width:280px  -->
+                    <div class="col-4" style="border: 0px solid red;">
+                        <div class="text-right pr-3">
+                            <a href=# id="photo-edit" title="Editar foto"><i class="fas fa-edit icon-blue"></i></a>  
+                            <a href=# id="photo-shift" title="Trocar foto"><i class="fas fa-undo icon-blue"></i></a>
+                        </div>
+                        
+                        <div class="text-center" style="border: 1px solid blue;width:280px;display: block;margin: auto;">
+                            <img id="photo1" src=<%= foto1 %> class="img-fluid img-pointer"  title="Foto" data-id=<%= selecionada %> url="">
+                        </div>
+                    </div>
+                    
+                    <!--  col 2 -->
+                    <div class="col-6" style="border: 0px solid ;">
+                        <div class="form-group">
+                            <label class="text-left" for="nome">Nome</label>
+                            <input class="form-control" id="nome" type="text" name="nome" required value="<%= _nome %>" >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="text-left" for="email">Email</label>
+                            <input class="form-control" id="email" type="email" name="email" required value="<%= _email %>" >
+                        </div>
+
+                        <!--
+                        <div class="form-group">
+                            <label for="senha" class="text-left">Senha </label>
+                            <input class="form-control" type="password" id="senha" required value=<%= _senha %>>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <!-- row 2 -->
+                <div class="row mt-2" style="height:100px;">
+                    <div class="col-4" style="border:0px solid green;">
+                        <div class="d-flex flex-row justify-content-between" style="border: 0px solid blue;width:280px;display: block;margin: auto;">
+                            <div style="width:70px;height:70px;border:1px solid red;">
+                                <img id="photo2" src= <%= foto2 %> class="img-fluid img-pointer" title="Duplo clique para editar" data-id="1" url="" >
+                            </div>
+                            <div style="width:70px;height:70px;border:1px solid red;">
+                                <img id="photo3" src= <%= foto3 %> class="img-fluid img-pointer"  title="Duplo clique para editar" data-id= "2" url="" >
+                            </div>
+                            <div style="width:70px;height:70px;border:1px solid red;">
+                                <img id="photo4" src= <%= foto4 %> class="img-fluid img-pointer"  title="Duplo clique para editar" data-id= "3" url="" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                    </div>
+                </div>
+
+                <!-- row 3 -->
+                <div class="row">
+                    <!--  col 1 -->
+                    <div class="col-4" >
+                        <div class="form-group">
+                            <label class="form-check-label" class="text-left">Você é :</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" value="1" required <%= ( _sexo==1 ? 'checked' : '' ) %> >
+                                    <label class="form-check-label">Homem</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" value="0" <%= ( _sexo==0 ? 'checked' : '' ) %> >
+                                    <label class="form-check-label">Mulher</label>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+                    <!--  col 2 -->
+                    <div class="col-4" >
+                        <div class="form-group">
+                            <label for="estado_civil">Estado Civil</label>
+                            <select class="form-control" id="estado_civil">
+                                <option value="0" <%= ( _estado_civil==0 ? 'selected' : '' ) %> > Solteiro</option>
+                                <option value="1" <%= ( _estado_civil==1 ? 'selected' : '' ) %> > Casado</option>
+                                <option value="2" <%= ( _estado_civil==2 ? 'selected' : '' ) %> > Viúvo</option>
+                                <option value="3" <%= ( _estado_civil==3 ? 'selected' : '' ) %> > Separado</option>
+                                <option value="4" <%= ( _estado_civil==4 ? 'selected' : '' ) %> > Divorciado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--  col 3 -->
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label class="text-left" for="idade">Informe sua idade</label>
+                            <input class="form-control" id="idade" type="text" value= <%= _idade %> >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- row 4 -->
+                <div class="row" style="">
+                    <!--  col 1 -->
+                    <div class="col-4" >
+                        <div class="form-group">
+                            <label for="estados">Estado</label>
+                            <select class="form-control" id="estados" value= <%= _iduf %> >
+                                //
+                                // ESTADOS DO BRASIL
+                                //
+                                <% ufs.forEach( uf => { %>
+                                <option value=<%= uf.id %> <%= ( uf.id == _iduf ? 'selected' : '' ) %>> <%= uf.desc %> </option>
+                                <%  }); %>
+                            </select>
+                         </div>
+                    </div>
+                    <!--  col 2 -->
+                    <div class="col-4" >
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <select class="form-control" id="cidades" value=<%= _idcidade %> >
+                                //
+                                // CIDADES DO ESTADO ESCOLHIDO
+                                //
+                                <% if( cidades ) { %>
+                                <%   cidades.forEach( _cidade => { %>
+                                <option value=<%= _cidade.id %> <%= ( _cidade.id == _idcidade ? 'selected' : '' ) %>> <%= _cidade.desc %> </option>
+                                <%  }); }; %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- row 5 -->
+                <div class="row" style="">
+                    <!--  col 1 -->
+                    <div class="col-10" style="">
+                        <fieldset class="frame1">
+                            <legend class="frame2">Quais transtornos vivencia de forma +intensa :</legend>
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="disturbios" value="0"  <%= ( getDist(0) ? 'checked' : '' ) %> >
+                                    <label class="form-check-label">Depressão</label>
+                                </div>    
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="disturbios" value="1" <%= ( getDist(1) ? 'checked' : '' ) %> >
+                                    <label class="form-check-label">Ansiedade</label>
+                                </div>    
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="disturbios" value="2" <%= ( getDist(2) ? 'checked' : '' ) %> >
+                                    <label class="form-check-label">Afetivo Bipolar</label>
+                                </div>    
+                            </div>    
+                        </fieldset>                        
+                    </div>
+                </div>
+
+                <!-- row 6 -->
+                <div class="row">
+                    <!--  col 1 -->
+                    <div class="col-10">
+                        <fieldset class="frame1">
+                            <legend class="frame2">Desenvolvimento pessoal :</legend>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="desenvolvimento" value="0" <%= ( getDesenv(0) ? 'checked' : '' ) %> >
+                                    <label class="text-left">Já consultou/conhece algum psicoterapeuta ? </label>
+                                </div>                        
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="desenvolvimento" value="1" <%= ( getDesenv(1) ? 'checked' : '' ) %> >
+                                    <label class="text-left">Pratica/participa atualmente de algum processo/grupo psicoeducativo ?</label>
+                                </div>                        
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="desenvolvimento" value="2" <%= ( getDesenv(2) ? 'checked' : '' ) %> >
+                                    <label class="text-left">Realizado(a) financeiramente? Seu propósito de vida esta alinhado com seu atual emprego/projeto ?</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group frame1" id="contatos">
+                            <legend class="row-form-label frame2">Qual a melhor forma para lhe contactar:</legend>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="0" <%= ( _forma_contato==0 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Email</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="1" <%= ( _forma_contato==1 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Whatsapp</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="2" <%= ( _forma_contato==2 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Facebook</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="3" <%= ( _forma_contato==3 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Twitter</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="4" <%= ( _forma_contato==4 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Instragram</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="5" <%= ( _forma_contato==5 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Signal</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="6" <%= ( _forma_contato==6 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Telegram</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="7" <%= ( _forma_contato==7 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Snapchat</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="8" <%= ( _forma_contato==8 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Skype</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="forma_contato" value="9" <%= ( _forma_contato==9 ? 'checked' : '' ) %> >
+                              <label class="form-check-label">Celular</label>
+                            </div>
+                            <div class="form-group">
+                            </div>
+                            <div class="col-8" id="contato_end_1" style="display:block;">
+                                <div class="form-group">
+                                    <label class="text-left" for="email">Informe o endereço</label>
+                                    <input class="form-control" id="contato_end1" type="text" value=<%= _contato_end %> >
+                                </div>
+                            </div>
+                            <div class="col-4" id="contato_end_2" style="display:none;">
+                                <div class="form-group">
+                                    <label class="text-left" for="email">Informe o número :</label>
+                                    <input class="form-control" id="contato_end2" type="text" value=<%= _contato_end %> >
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- https://pt.stackoverflow.com/questions/25753/como-fazer-um-contador-de-caracteres-de-uma-textarea -->
+                        <div class="form-group">
+                            <label class="form-label" for="hist" >Descreva um resumo de sua jornada até hoje:</label>
+                            <textarea class="form-control" style="resize: none;" id="historico" rows="3" cols="108" maxlength="400"> "<%= _historico %>" </textarea>
+                        </div>                                
+                    </div>
+                </div>
+
+                <!-- row 8 -->
+                <div class="row" style="">
+                    <!--  col 1 -->
+                    <div class="col-4" style="">
+                        <div class="form-group">
+                            <button class='btn btn-primary' type='button' id="btn_teste"  value='teste'>Realizar Teste Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- row 9 -->
+                <div class="row" style="">
+                    <div class="col-10" style="">
+
+                        <hr style="">
+
+                        <div class='form-group text-right'>
+                            <button class='btn btn-success btn-lg w-25' type="submit" id= "btn-salvar"  value='salvar'>Salvar </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- COLUNA 3 - AD's COLUMN  -->
+    <div class="col-4" style="border:0px solid blue;"> </div>
+    
+</div>
+
+<!--
+//
+// ---------  PICTURE ADJUST MODAL
+//
+-->
+<div class="modal" id="photo-adjst-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajustar foto <br><br> Verifique se a foto esta em conformidade com o padrão: </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="container-fluid" style="height: 400px;">
+                    <div class="row h-100">
+                        <div style="width: 350px; border: 0px solid red;" >
+                            <div class="mx-auto"  id="photo-adjst-frame"> <!-- style="width:330px;"  class="photo-frame" >-->
+                            </div>
+                            <input type="hidden" id="photo-adjst-repository" value="" data-id="1" />
+                            <input type="file" id="photo-input" name="files" style="display: none;" accept="image/*">
+                        </div>
+
+                        <div class="d-flex" style="width: 50px; border: 0px solid blue;" >
+                            <div class="">
+                                <div class="form-group">
+                                    <a href=# id="photo-adjst-edit" title="Selecione uma foto"><i class="fas fa-edit"></i></a>  
+                                </div>
+                                <div class="form-group">
+                                    <a href=# id="photo-adjst-remove" title="Remover foto"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex" style="border: 0px solid;" >
+                            <div class="">
+                                <div class="form-group">
+                                    <span><i class="fas fa-check-square"></i> Fotos individuais </span> 
+                                </div>
+                                <div class="form-group">
+                                    <span><i class="fas fa-check-square"></i> Foto de rosto visível </span> 
+                                </div>
+                                <div class="form-group">
+                                    <span><i class="fas fa-check-square"></i> Sem crianças ou conteúdo sensual </span> 
+                                </div>
+                                <div class="form-group">
+                                    <span><i class="fas fa-check-square"></i> Sem incitação ao crime/praticas ilícitas </span> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" id="photo-adjst-conf" class="btn btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+    legend + bootstrap
+    https://stackoverflow.com/questions/16852484/use-fieldset-legend-with-bootstrap
+-->

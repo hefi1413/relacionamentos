@@ -1,0 +1,90 @@
+<!-- 
+//
+// Artigo sobre eneagrama -> https://juliablanque.com.br/eneagrama-analise-de-perfil-comportamental/
+// Video sobre eneagrama para casais -> https://www.youtube.com/watch?v=3OQx9xp_O1o
+// Video sobre eneagrama para casais -> https://www.youtube.com/watch?v=Ori7xaCOa_c
+//
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/all.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel&amp;family=Lato">
+        <link rel="stylesheet" href="/css/script.css">
+        
+        <style>
+        
+            fieldset.transt-border {
+                border: 1px groove #ddd !important;
+                padding: 0 1.4em 1.4em 1.4em !important;
+                margin: 0 0 1.5em 0 !important;
+                -webkit-box-shadow:  0px 0px 0px 0px #000;
+                        box-shadow:  0px 0px 0px 0px #000;
+            }
+
+            legend.transt-border {
+                font-size: 1.2em !important;
+                font-weight: normal !important;
+                text-align: left !important;
+                width:auto;
+                padding:0 10px;
+                border-bottom:none;
+            }        
+            
+            h3 {
+                position:relative;
+            }
+            h3:before {
+                position: absolute;
+                display:block;
+                top:0;
+                left:0;
+                bottom:0;
+                content: attr(data-content);
+                background-color:#FFF;
+                color:#FFF;
+                z-index:-1;
+                padding-right:.5em;
+            }
+            h3:after {
+                position:absolute;
+                content:'';
+                display: block;
+                left:0;
+                right:0;
+                top:50%;
+                background-color:#555;
+                height:.1em;
+                min-height:1px;
+                z-index:-2;
+            }            
+            
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <div class="container-fluid text-center">
+            <h1> <%= message %></h1>
+        </div>
+        <br>
+        <br>
+
+        <!-- MAIN CONTAINER SIDE BY SIDE -->
+        <div class="container-fluid" style="height:700px;border: 2px solid green;" >
+
+            <div class="row h-100">
+                
+                <!-- PREFER's COLUMN !-->
+                <div class="w-75 p-3" style="border: 2px solid red;" >
+                </div>
+
+                <!-- AD's COLUMN !-->
+                <div class="w-25 p-3" style="border: 2px solid blue;" >
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

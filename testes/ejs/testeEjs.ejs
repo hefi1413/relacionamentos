@@ -1,0 +1,426 @@
+<!-- 
+//
+// Artigo sobre eneagrama -> https://juliablanque.com.br/eneagrama-analise-de-perfil-comportamental/
+// Video sobre eneagrama para casais -> https://www.youtube.com/watch?v=3OQx9xp_O1o
+// Video sobre eneagrama para casais -> https://www.youtube.com/watch?v=Ori7xaCOa_c
+//
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/all.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel&amp;family=Lato">
+        <link rel="stylesheet" href="/css/script.css">
+        
+        <!-- CROPPIE -->
+        <link rel="stylesheet" href="/css/croppie.css" />
+        
+        <script src="/js/croppie.js"></script>
+        
+        <style>
+        
+            fieldset.frame1 {
+                border: 1px groove #ddd !important;
+                padding: 0 1.4em 1.4em 1.4em !important;
+                margin: 0 0 1.5em 0 !important;
+                -webkit-box-shadow:  0px 0px 0px 0px #000;
+                        box-shadow:  0px 0px 0px 0px #000;
+            }
+
+            legend.frame2 {
+                font-size: initial !important;
+                font-weight: normal !important;
+                text-align: left !important;
+                width:auto;
+                padding:0 10px;
+                border-bottom:none;
+            }        
+            
+            h3 {
+                position:relative;
+            }
+            h3:before {
+                position: absolute;
+                display:block;
+                top:0;
+                left:0;
+                bottom:0;
+                content: attr(data-content);
+                background-color:#FFF;
+                color:#FFF;
+                z-index:-1;
+                padding-right:.5em;
+            }
+            h3:after {
+                position:absolute;
+                content:'';
+                display: block;
+                left:0;
+                right:0;
+                top:50%;
+                background-color:#555;
+                height:.1em;
+                min-height:1px;
+                z-index:-2;
+            }            
+            
+            .fa-check-square {
+                color: green;
+            }
+
+            .fa-edit {
+                color: red;
+            }
+
+            .fa-trash {
+                color: red;
+            }
+            
+            .vertical-line {
+              border-left: 1px solid;
+              height: 350px;
+            }            
+            
+            .photo-frame {
+                width: 330px;
+                height: 330px;
+                border: 5px solid black;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <div class="container-fluid text-center">
+            <h1> <%= message %></h1>
+        </div>
+        <br>
+        <br>
+
+        <!-- MAIN CONTAINER SIDE BY SIDE -->
+        <div class="container" style="height:1400px;border: 0px solid red;" >
+
+            <div class="row h-100">
+                
+                <!-- PREFER's COLUMN !-->
+                <div class="w-75 p-3" style="border: 0px solid red;" >
+                
+                    <form>
+                        <!-- row 1 -->
+                        <div class="row" style="border: 0px solid green;">
+                            <!--  col 1 -->
+                            <div class="col-4" style="border: 0px solid red;">
+                                
+                                <div class="text-right">
+                                    <a href=# id="photo-edit" title="Editar foto"><i class="fas fa-edit"></i></a>  
+                                    &nbsp  
+                                    <a href=# id="photo-remove" title="Remover foto"><i class="fas fa-trash"></i></a>
+                                </div>
+                                
+                                <div class="text-center" style="width:270px;height:270px;">
+                                    <img id="photo" src="imagens/social-male.png" class="img-fluid"  title="Foto">
+                                </div>
+                                
+                                <input type="file" id="photo-input" name="files" style="display: none;" accept="image/*">
+                            </div>   
+
+                            <!--  col 2 -->
+                            <div class="col-8" style="border: 0px solid ;">
+                                <div class="form-group">
+                                    <label class="text-left" for="nome">Nome</label>
+                                    <input class="form-control form-control" id="nome" type="text" name="nome">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="text-left" for="email">Email</label>
+                                    <input class="form-control form-control" id="email" type="text" name="email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="senha" class="text-left">Senha </label>
+                                    <input class="form-control form-control" type="password" name="fields" id="senha" aria-describedby="senhaHelp" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- row 2 -->
+                        <div class="row" style="">
+                            <!--  col 1 -->
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="ecivil">Estado Civil</label>
+                                    <select class="form-control" id="ecivil">
+                                        <option value="0"> Solteiro</option>
+                                        <option value="1"> Casado</option>
+                                        <option value="2"> Viúvo</option>
+                                        <option value="3"> Separado</option>
+                                        <option value="4"> Divorciado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--  col 2 -->
+                            <div class="col-4" >
+                                <div class="form-group">
+                                    <label class="text-left" for="idade">Informe Sua Idade</label>
+                                    <input class="form-control form-control" id="idade" type="text" name="idade">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- row 3 -->
+                        <div class="form-row" style="">
+                            <!--  col 1 -->
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label class="form-check-label" class="text-left">Você é :</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genero0" value="0">
+                                            <label class="form-check-label">Homem</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genero1" value="1">
+                                            <label class="form-check-label">Mulher</label>
+                                        </div>
+                                    </div>                        
+                                </div>
+                            </div>
+                            <!--  col 3 -->
+                            <div class="col-4" >
+                                <div class="form-group">
+                                    <label for="estados">Estado</label>
+                                    <select class="form-control" id="estados">
+                                        //
+                                        // ESTADOS SELECT
+                                        //
+                                        <% ufs.forEach( uf => { %>
+                                        <option value=<%= uf.id %>> <%= uf.desc %> </option>
+                                        <%  }); %>
+                                    </select>
+                                 </div>
+                            </div>
+                            <!--  col 2 -->
+                            <div class="col-4" >
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <select class="form-control" id="cidades">
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+                            
+                        <!-- row 4 -->
+                        <div class="row" style="">
+                        </div>
+                            
+                        <!-- row 5 -->
+                        <div class="form-row" style="">
+                            <!--  col 1 -->
+                            <div class="col-12" style="">
+                                <fieldset class="frame1">
+                                    <legend class="frame2">Quais transtornos vivencia de forma +intensa :</legend>
+                                    <div class="form-group" id="disturbios">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="0" value="0">
+                                            <label class="form-check-label">Depressão</label>
+                                        </div>    
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="1" value="1">
+                                            <label class="form-check-label">Ansiedade</label>
+                                        </div>    
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="2" value="2">
+                                            <label class="form-check-label">Afetivo Bipolar</label>
+                                        </div>    
+                                    </div>    
+                                </fieldset>                        
+                            </div>
+                        </div>
+
+                        <!-- row 6 -->
+                        <div class="form-row" style="">
+                            <!--  col 1 -->
+                            <div class="col-12" style="">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="conhece">
+                                        <label for="conhece" class="text-left">Já consultou/conhece algum psicoterapeuta ? </label>
+                                    </div>                        
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="participa" id="participa">
+                                        <label for="conhece" class="text-left">Pratica/participa atualmente de algum processo/grupo psicoeducativo ?</label>
+                                    </div>                        
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="realizado" id="realizado">
+                                        <label for="conhece" class="text-left">Realizado(a) financeiramente? Seu propósito de vida esta alinhado com seu atual emprego/projeto ?</label>
+                                    </div>                        
+                                    
+                                </div>                        
+
+                                <div class="form-group">
+                                    <label class="form-label" for="hist" >Descreva um resumo de sua jornada até hoje:</label>
+                                    <textarea id="hist" name="hist" id="hist" rows="3" cols="105" placeholder="Sou formado em exatas , teho 30 anos e atualmente estou atravessando uma tempestade em minha vida.">
+                                    </textarea>                            
+                                </div>                        
+                                
+                                <fieldset class="form-group frame1" id="contato">
+                                    <legend class="row-form-label frame2">Qual a melhor forma para lhe contactar:</legend>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="contatos" id="contato0" value="option1" checked>
+                                      <label class="form-check-label" for="contatos">
+                                        Email
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="contatos" id="contato1" value="option1" >
+                                      <label class="form-check-label" for="contatos">
+                                        Whatsapp
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="contatos" id="contato2" value="option1">
+                                      <label class="form-check-label" for="contatos">
+                                        Skype
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="contatos" id="contato3" value="option1">
+                                      <label class="form-check-label" for="contatos">
+                                        Celular
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="contatos" id="contato4" value="option1">
+                                      <label class="form-check-label" for="contatos">
+                                        Snapchat
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="contatos" id="contato5" value="option1">
+                                      <label class="form-check-label" for="contatos">
+                                        Messenger
+                                      </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        
+                        <!-- row 8 -->
+                        <div class="form-row" style="">
+                            <!--  col 1 -->
+                            <div class="col-4" style="">
+                                <div class="form-group">
+                                    <button class='btn btn-primary' id="btn_teste" type='' value='teste'>Realizar Teste Agora</button>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- row 9 -->
+                        <div class="row" style="">
+                            <div class="col-12" style="">
+                            
+                                <hr style="">
+
+                                <div class='form-group text-right'>
+                                    <button class='btn btn-success btn-lg w-25' type='submit' value='salvar'>Salvar </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+
+                <!-- AD's COLUMN -->
+                <div class="w-25 p-3" style="border:1px solid blue;" >
+
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <!--
+        //
+        // ---------  PICTURE ADJUST MODAL
+        //
+        -->
+        <div class="modal" id="photo-adjst-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajustar foto <br><br> Verifique se a foto esta em conformidade com o padrão: </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="container-fluid" style="height: 400px;">
+                            <div class="row h-100">
+                                <div style="width: 350px; border: 0px solid red;" >
+                                    <div class="mx-auto"  style="width:330px;" id="photo-adjst-frame" class="photo-frame">
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex" style="width: 50px; border: 0px solid blue;" >
+                                    <div class="">
+                                        <div class="form-group">
+                                            <a href=# id="photo-adjst-edit" title="Selecione uma foto"><i class="fas fa-edit"></i></a>  
+                                        </div>
+                                        <div class="form-group">
+                                            <a href=# id="photo-adjst-remove" title="Remover foto"><i class="fas fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex" style="border: 0px solid;" >
+                                    <div class="">
+                                        <div class="form-group">
+                                            <span><i class="fas fa-check-square"></i> Fotos individuais </span> 
+                                        </div>
+                                        <div class="form-group">
+                                            <span><i class="fas fa-check-square"></i> Foto de rosto visível </span> 
+                                        </div>
+                                        <div class="form-group">
+                                            <span><i class="fas fa-check-square"></i> Sem crianças ou conteúdo sensual </span> 
+                                        </div>
+                                        <div class="form-group">
+                                            <span><i class="fas fa-check-square"></i> Sem incitação ao crime/praticas ilícitas </span> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img type="hidden" id="bookId" value=""/>                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" id="photo-adjst-btnconf" class="btn btn-danger">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JQUERY-->
+        <script src="/js/jquery.slim.min.js"></script>
+        <script src="/js/jquery.min.js"></script>
+       
+       <!-- BOOTSTRAP-->
+       <script src="/js/bootstrap.min.js"></script>
+       
+       <!-- APP-->
+       <script src="/js/croppieEjs.js"></script>
+       <script src="/js/prefer.js"></script>
+       <script src="/js/utils.js"></script>
+    </body>
+</html>

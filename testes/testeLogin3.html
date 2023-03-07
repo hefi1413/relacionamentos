@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+
+        <link rel='stylesheet' href='/css/all.min.css'>
+        <link rel='stylesheet' href='/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cinzel&family=Lato'>
+        <link rel='stylesheet' href='/css/script.css'>
+    </head>
+    
+    <body>
+        <!-- CENTER IMAGE -->
+        <div class='container-fluid image-top'></div>
+
+        <!-- ALERTS 
+            <div class='container-fluid alerts' id='html-alerts'></div> 
+        -->
+        <div class='container-fluid alert alert-danger alert-dismissible' style="display: none;" id='html-alerts'>
+        </div> 
+
+        <!-- ALINHAMENTO DO CONTAINER -->
+        <div class='row h-100' >    <!-- LINHA -->
+
+            <!-- COLUNA -->
+            <div class='col' style='border:0px solid red;'> </div>
+
+            <!-- COLUNA -->
+            <div class='col' style='border:0px solid red;'>  
+
+                <!--DIV CONTENT-->
+                <div class='container' style='border:0px solid blue;'>
+                    <h1 class='text-center'>Login</h1>
+                    <br>
+                    <div class='row' style='height: 80px; background-color:#e6e6e6; '>
+                        <div class='col my-auto' >
+                            <span>Informe seus dados para login</span>
+                        </div>
+                    </div>
+                    <div class='row h-100'>
+                        <div class='col mx-auto' style='border:0px solid blue;'>
+                        <!--    <form method='POST' action='/home/login/entrar'> -->
+                            <form method='post' action='/login' multipart='urlencoded'>
+                                <br>
+                                <div class='form-group'>
+                                    <label for='email'>Email </label>
+                                    <input class='form-control form-control-lg' type='email' name='email' id='email' aria-describedby='emailHelp' required>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='password'>Senha </label>
+                                    <input class='form-control form-control-lg' type='password' name='password' id='password' aria-describedby='senhaHelp' required>
+                                </div>
+                                <div class='text-right'> 
+                                    <a href='#'> <small class='form-text text-muted'>Esqueceu sua senha?</small> </a> 
+                                </div>
+                                <br>
+                                <div class='form-group text-center'>
+                                    <button class='btn btn-success btn-lg w-50' type='submit' value='entrar'>Entrar </button>
+                                </div>
+                           </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUNA -->
+            <div class='col' style='border:0px solid red;'> </div>
+
+        </div>
+        
+        <!-- JQUERY -->
+        <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
+        
+        <!-- BOOTSTRAP -->
+        <script src='/js/bootstrap.min.js'></script>
+        
+        <!-- APP -->
+        <script src='/js/utils.js'></script>
+        <script src='/js/main.js'></script>
+    </body>  
+</html>

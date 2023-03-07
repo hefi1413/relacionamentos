@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/all.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel&amp;family=Lato">
+        <link rel="stylesheet" href="/css/script.css">
+    </head>
+    <body>
+        <br>
+        <br>
+        <div class="container-fluid text-center">
+            <h1> <%= message %></h1>
+        </div>
+        <br>
+        <br>
+
+        <div class="container-fluid" style="height:500px;border: 1px solid green;" >
+
+            <!-- https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=300 -->
+
+            <!--
+            // ---------  PREFERENCIAS
+            //
+            !-->
+            
+            <div class="form-row" style="height:100%;">
+                <!--  col 1 -->
+                <div class="col-2" id="img" style="width:250px;height:350px;border:1px solid;">
+                    
+                    <div class="text-right">
+                        <a href=# id="alterar-foto"><i class="fas fa-edit"></i></a>  
+                        &nbsp  
+                        <a href=# id="remover-foto"><i class="fas fa-trash"></i></a>
+                    </div>
+                    
+                    <img class="card-img-top" id="img-picture" src="imagens/social-icon-male-user.jpg" alt="Card image cap">
+                    <input type="file" id="file-input" name="files" style="display: none;" ><br><br>
+                </div>            
+                <!--  col 2 -->
+                <div class="col-5" style="border: 1px solid ;">
+                    <label class="text-left" for="nome">Nome</label>
+                    <input class="form-control form-control-lg" id="nome" type="text" name="nome">
+                    <label class="text-left" for="email">Email</label>
+                    <input class="form-control form-control-lg" id="email" type="text" name="email">
+                    <div class="form-group">
+                        <label for="estados">Estados</label>
+                        <select class="form-control" id="estados">
+                            //
+                            // ESTADOS SELECT
+                            //
+                            <% ufs.forEach( uf => { %>
+                            <option value=<%= uf.id %>> <%= uf.desc %> </option>
+                            <%  }); %>
+                        </select>
+                     </div>
+                     <div class="form-group">
+                        <label for="cidade">Cidades</label>
+                        <select class="form-control" id="cidades">
+                        </select>
+                     </div>
+                </div>
+                <div class="col-3" id="img" style="border: 1px solid red ;">
+                </div>            
+            </div>
+            <!--
+            //
+            // ---------  PICTURE ADJUST MODAL
+            //
+            !-->
+            <div class="modal" id="pict-adjst-modal" tabindex="-1" role="dialog" style="width:80%;">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ajustar foto <br><br> Verifique se sua foto esta conforme o padrão </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="" width="300px" height="400px;">
+                                    </div>
+                                    <div class="col-5">
+                                        <span><i class="fas fa-check-square"></i> Fotos sem crianças </span> <br>
+                                        <span><i class="fas fa-check-square"></i> Fotos nu ou sensuais </span> <br>
+                                        <span><i class="fas fa-check-square"></i> Apologia ao crime ou praticas ilícitas </span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-primary">Aplicar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JQUERY-->
+        <script src="/js/jquery.slim.min.js"></script>
+        <script src="/js/jquery.min.js"></script>
+       
+       <!-- BOOTSTRAP-->
+       <script src="/js/bootstrap.min.js"></script>
+       
+       <!-- APP-->
+       <script src="/js/prefer.js"></script>
+       <script src="/js/utils.js"></script>
+    </body>
+</html>

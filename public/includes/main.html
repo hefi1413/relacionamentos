@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='description' content='An interactive getting started guide for Brackets.'>
+        <meta http-equiv='cache-control' content='max-age=0' >
+        <meta http-equiv='cache-control' content='no-cache' >
+        <meta http-equiv='expires' content='0' >
+        <meta http-equiv='expires' content='Tue, 01 Jan 1980 1:00:00 GMT' >
+        <meta http-equiv='pragma' content='no-cache' >
+         
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/all.min.css" />
+        <link rel="stylesheet" href="/css/croppie.css" />
+        <link rel='stylesheet' href='/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/css/script.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cinzel&family=Lato'>
+    </head>
+    
+    <body>
+        <!-- NAVBAR 
+            https://stackoverflow.com/questions/42046287/bootstrap-4-dropdown-menu-is-going-off-to-the-right-of-the-screen
+        -->
+        
+        <!--
+            - classe .menuitem-* : classe que definide itens de menu. utilizada para invocar o metodo $.ajax()
+            - identificadores #item-* : utilizados na identificação unica de itens do menu
+            - atributo value : utilizado para definir a rota da página em <script home.js> 
+        -->
+        
+        <header>
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="/imagens/couples-therapy.svg" width="30" height="30" class="d-inline-block align-top" alt=""> 
+                        <span style="font-size:15px;color:#944dff;"> -Depressão +Relacionamentos </span>
+                    </a>
+                    
+                     
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link menuitem" href="#" value="inicio" id="inicio" > Início</a>  
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menuitem" href="#" value="signup"> <i class="fas fa-user"></i> Registrar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menuitem-login" href="#" value="login" id="login"> <i class="fas fa-sign-in-alt"></i> Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menuitem" href="#" value="contato"> Contato</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> | </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle disabled" href="#" id="navbar-account" role="button" data-toggle="dropdown" aria-haspopup="true" 
+                                    aria-expanded="false"> Minha Conta</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="#"> <i class="fas fa-cog" style="color: blue;"></i> Configurações</a>
+
+                                    <a class="dropdown-item menuitem-prefer" href="#" value="account/prefer" id="prefer"> <i class="far fa-hand-pointer" style="color: blue;"></i> Preferências</a>
+
+                                    <a class="dropdown-item menuitem" href="#" value="account/password" id="item-password" > Alterar Senha</a>
+                                    <a class="dropdown-item menuitem" href="#" value="account/personaTest1" > <i class="fas fa-flask" style="color: blue;"></i> Teste de Personalidade</a>
+
+                                    <a class="dropdown-item" href="#"> <i class="fas fa-play-circle icon-blue" style="color: blue;"></i> Vídeos Indicados</a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a class="dropdown-item menuitem-logout"  href="#" value="logout" id="logout" > <i class="fas fa-sign-out-alt" style="color: blue;"></i> Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <main>
+            <div class="container-fluid" id="html-content"></div>
+        </main>
+
+        <!-- FONT AWESOME -->
+        <script src="/js/all.min.js"></script>
+        
+        <!-- JQUERY -->
+        <script src="/js/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- BOOTSTRAP -->
+        <script src="/js/bootstrap.min.js"></script>
+
+        <!-- APP -->
+        <script type="application/javascript" src="/js/alertshtml.js"></script>
+        <script type="application/javascript" src="/js/utils.js"></script>
+        <script type="application/javascript" src="/js/registrar.js"></script>
+        <script type="application/javascript" src="/js/login.js"></script>
+        <script type="application/javascript" src="/js/preferencias.js"></script>
+        <script type="application/javascript" src="/js/croppieEjs.js"></script>
+        <script type="application/javascript" src="/js/password.js"></script>
+        <script type="application/javascript" src="/js/main.js"></script>
+        
+    </body>  
+    
+    <footer>
+        <div class="mt-5 pt-5 pb-5 footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-xs-12 about-company">
+                        <h2>SIGA:</h2>
+                        <p class="pr-5 text-white-50">Você pode nos seguir nas redes sociais através dos seguintes endereços: </p>
+                        <p><a href="https://www.facebook.com/ControleDaDepressãoEAnsiedade"><i class="fab fa-facebook-f"></i> Controle Da Depressão E Ansiedade</a></p>
+                        <p><a href="https://www.facebook.com/ControleDaDepressãoEAnsiedade"><i class="fab fa-youtube"></i> Controle Da Depressão E Ansiedade </a></p>
+                    </div>
+                    <div class="col-lg-3 col-xs-12 links">
+                        <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+                        <ul class="m-0 p-0">
+                            <li>- <a href="#">Lorem ipsum</a></li>
+                            <li>- <a href="#">Nam mauris velit</a></li>
+                            <li>- <a href="#">Etiam vitae mauris</a></li>
+                            <li>- <a href="#">Fusce scelerisque</a></li>
+                            <li>- <a href="#">Sed faucibus</a></li>
+                            <li>- <a href="#">Mauris efficitur nulla</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-xs-12 location">
+                      <h4 class="mt-lg-0 mt-sm-4">Endereço</h4>
+                      <p>Rua xxxxxx - 300 - Rio de Janeiro - Brasil</p>
+                      <p class="mb-0"><i class="fas fa-phone"></i> (55) 21 973592269</p>
+                      <p><i class="fas fa-envelope"></i> digitalentrepreneur042018@gmail.com</p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col copyright">
+                        <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</html>

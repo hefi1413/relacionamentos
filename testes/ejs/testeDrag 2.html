@@ -1,0 +1,68 @@
+<!doctype HTML>
+<html>
+    <head>
+        <style>
+            
+            .canvas {
+                width: 500px;
+                height: 300px;
+                position: relative;
+                margin: 2em auto;
+                border: solid 10px rgba(0,0,0,0.1);
+            }
+            
+            .box {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100px;
+                background: green;
+                cursor: move;
+            }
+
+            .result {
+                text-align: center;
+            }
+        </style>
+        
+        <!-- JQUERY -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+    
+    <body>
+    
+        <div class="canvas" >
+            <div class="box" id="box2"></div>
+        </div>
+
+        <div class="result" id="results"></div>
+        
+        <script>
+        
+            var coordinates = function(element) {
+                element = $(element);
+                var top = element.position().top;
+                var left = element.position().left;
+                
+                $('#results').text('X: ' + left + ' ' + 'Y: ' + top);
+            };
+            
+            $('#box2').draggable({
+                start: function() {
+                    coordinates('#box2');
+                },
+                drag: function() {
+                    coordinates('#box2');
+                },
+                containment: ".canvas",
+                scroll: false
+            });
+            
+        </script>
+        
+        
+    </body>
+
+</html>

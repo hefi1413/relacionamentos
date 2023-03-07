@@ -1,0 +1,74 @@
+//
+// FORMULARIO PARA ALTERAÇÃO / CRIAÇÃO NOVA SENHAS
+//
+
+<!-- CENTER IMAGE -->
+<div class="container-fluid image-top"></div>
+
+<!-- ALERTS -->
+<div class="container-fluid alerts" id="html-alerts"></div> 
+
+<!-- ALINHAMENTO DO CONTAINER -->
+<div class="row h-100" >    <!-- LINHA -->
+    
+    <div class="col" style="border:0px solid red;"> </div>
+    
+    <div class="col" style="border:0px solid red;">  <!-- COLUNA -->
+
+        <!--DIV CONTENT-->
+        <div class="container" style="border:0px solid blue;">
+            
+            <!-- title-->
+            <h1 class="text-center" id="title"><%=title></h1>
+            <br>
+            <div class="row" style="height: 80px; background-color:#e6e6e6; ">
+                <div class="col my-auto" >
+                    <span id="descricao"><%=descricao></%></span>
+                </div>
+            </div>
+            
+            <!-- email -->
+            <div class="row h-100" style="display: block;" id="div-email">
+                <div class="col mx-auto text-center" style="border:0px solid blue;">
+                    <form id="" method="post" action="home/account/password/alterar">
+                        <br>
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="fields" id="email">
+                        </div>
+                        <br>
+                        <button class="btn btn-success btn-lg w-50" type="submit" id="btnEnviarEmail"> Verificar</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- senhas -->
+            <div class="row h-100" style="display: none;" id="div-senhas">
+                <div class="col mx-auto text-center" style="border:0px solid blue;">
+                    <form id="" method="post" action="home/senha/nova">
+                        <br>
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="fields" id="email" disabled value=<%= email >>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="fields" id="pws1" placeholder="Senha atual" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="fields" id="pws2" placeholder="Informe uma nova senha" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="fields" id="pws3" placeholder="Confirme a senha" required>
+                        </div>
+                        <br>
+                        <button class="btn btn-success btn-lg w-50" type="submit" id="btnEnviarSenhas"> Confirmar</button>
+                    </form>
+                </div>
+            </div>
+            
+            <input type="hidden" name="fields" id="mode" value=""> <!--  0=ALTERAR , 1=NOVA  -->
+            
+        </div>        
+    </div>
+    
+    <div class="col" style="border:0px solid red;"> </div>
+        
+</div>

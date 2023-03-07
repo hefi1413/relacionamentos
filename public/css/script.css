@@ -1,0 +1,235 @@
+
+    .alerts {
+        height:50px;
+        display:block;
+    }
+
+    .center-hv {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    fieldset.frame1 {
+        border: 1px groove #ddd !important;
+        padding: 0 1.4em 1.4em 1.4em !important;
+        margin: 0 0 1.5em 0 !important;
+        -webkit-box-shadow:  0px 0px 0px 0px #000;
+                box-shadow:  0px 0px 0px 0px #000;
+    }
+
+    .img-pointer {
+        cursor: pointer;
+    }
+
+    icon-blue {
+        color: blue;
+    }
+
+    .photo-frame {
+        width: 330px;
+        height: 330px;
+        border: 5px solid black;
+    }
+
+    .form-container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px #000;
+    }
+
+    .footer {
+      background: #152F4F;
+      color:white;
+
+      .links{
+        ul {list-style-type: none;}
+        li a{
+          color: white;
+          transition: color .2s;
+          &:hover{
+            text-decoration:none;
+            color:#4180CB;
+            }
+        }
+      }  
+      .about-company{
+        i{font-size: 25px;}
+        a{
+          color:white;
+          transition: color .2s;
+          &:hover{color:#4180CB}
+        }
+      } 
+      .location{
+        i{font-size: 18px;}
+      }
+      .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      margin-left: 1rem;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .image-top {
+        height:200px;
+        background-image: url("/imagens/image_header3.jpg");
+    } 
+
+    .image-center {
+        height:600px;
+        background-image: url("/imagens/image_header2.jpg");
+    } 
+
+    legend.frame2 {
+        font-size: initial !important;
+        font-weight: normal !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 10px;
+        border-bottom:none;
+    }        
+
+    .menu-button {
+        background-color: transparent;
+        border: none;
+        color: #000000;
+        padding: 0px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 0px 0px;
+        cursor: pointer;
+    }
+    .menu-button :active { 
+        background-color: 0; 
+    };
+    .menu-button:hover { 
+        font-weight:bold; 
+        color:#944dff; 
+    };
+
+    .table-wrap {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .table-hover > tbody > tr:hover > td,
+    .table-hover > tbody > tr:hover > th {
+        background-color: #CFF5FF ;
+    }
+
+    .title-top {
+        height:200px;
+        position: relative;
+        background-color:#944dff;        
+    }
+
+    span {
+        font-family: Lato, 'sans-serif'; 
+    }
+
+
+    /*  
+        PASSWORD FORM STYLING
+    */
+
+    /* The message box is shown when the user clicks on the password field */
+    #instructions {
+        display:block;
+        background: #f1f1f1;
+        color: #000;
+        position: relative;
+        /* padding: 10px; */
+        margin-top: 10px;
+    }
+
+    #instructions span {
+        font-size: 14px;
+    }
+
+    /* Add a green text color and a checkmark when the requirements are right */
+    .valid {
+        color: green;
+    }
+
+    .valid:before {
+        position: relative;
+        left: 00px;
+        font-size: 14px;
+        content: "✔";
+    }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    .invalid {
+        color: red;
+    }
+
+    .invalid:before {
+        position: relative;
+        font-size: 14px;
+        left: 00px;
+        content: "✖";
+    }
+
+
+/*
+
+            h3 {
+                position:relative;
+            }
+
+            h3:before {
+                position: absolute;
+                display:block;
+                top:0;
+                left:0;
+                bottom:0;
+                content: attr(data-content);
+                background-color:#FFF;
+                color:#FFF;
+                z-index:-1;
+                padding-right:.5em;
+            }
+            h3:after {
+                position:absolute;
+                content:'';
+                display: block;
+                left:0;
+                right:0;
+                top:50%;
+                background-color:#555;
+                height:.1em;
+                min-height:1px;
+                z-index:-2;
+            }            
+            .vertical-line {
+              border-left: 1px solid;
+              height: 350px;
+            }            
+
+            <!-- 
+                linha horizontal após texto.
+
+                https://stackoverflow.com/questions/16212230/how-to-create-a-flexible-leader-line-in-div-after-a-label-field/16212698#16212698
+
+                https://www.growingwiththeweb.com/2013/03/headers-with-vertically-centered.html
+
+                https://www.codegrepper.com/code-examples/css/horizontal+line+after+text+css+codepen
+
+            -->
+
+*/
